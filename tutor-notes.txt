@@ -1,0 +1,60 @@
+Command format:
+  command <number> motion
+
+Commands:
+  d - delete [dd - delete whole line] -> stores in neovim register (can be pasted later)
+  u - undo [U - undo whole line]
+  p - paste
+  r - replace - single letter
+  R - replace - multiple letters [<Esc> to leave Replace mode]
+  c - change - delete, but puts into insert mode
+  y {normal} - copy position
+
+Motions:
+  0 - start of line
+  e - end of current word
+  w - start of next word
+  $ - end of line
+
+Extras:
+  G - move to last line
+  gg - move to first line
+  Ctrl + g - show current line
+  <line_number> G -> take to <line_number> [:<line_number>]
+
+  /<word> <Enter> - search
+    n - next word
+    N - previous word
+
+  Ctrl + o - come back to line where you came from
+
+  % - find matching (, [, {
+
+  :s/old/new/g - substite (it's sed) [g - changes all in line]
+    * changing all between line x to line y (inclusive)
+      :x,ys/old/new/g
+    * changing all occurences in file
+      :%s/old/new/g
+
+  :! - use external shell commands
+    ex: !ls
+
+  v - enter selection mode
+  
+  :r <file_path> - retrieve text from file
+    retrieved line
+  :r !<command> - retrieve output of command
+    git version 2.46.2
+
+  O {normal} - place new line above current line and put in insert mode
+  o {normal} - place new line under current line and put in insert mode
+  
+  a {normal} - insert text after cursor  
+  
+  add ! to the end of command to overwrite
+    For example wq! <file_path> to overwrite that file with contents of the current one
+
+  Indents:
+    [Insert mode] tab / Ctrl + t | Ctrl + d -> current line
+    [Visual mode] > | < [indents forwards | backwards selected text]
+Tutor line - 814  
